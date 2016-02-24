@@ -1,0 +1,10 @@
+body
+{
+	background: rgb(255,255,255);	/*Fondo*/
+	color: #000000;    			  	/*Letra*/
+	margin: 0 auto;    			  	/*Margen (Centrar)*/
+	/*margin: 25%;*/
+	/*margin: 5px 2px 10px 50px;*/
+	max-width: 1024px; 			  	/*Máximo de ancho*/
+	
+}
