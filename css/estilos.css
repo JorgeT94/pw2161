@@ -14,12 +14,22 @@ header
 	background: blue;				/*Fondo*/
 	border: 1px solid black;		/*Alrededor*/
 	border-radius: 5px;				/*Esquinas*/
+	box-shadow: 5px 5px 10px black;
 	color: white;					/*Letra*/
 }
 
 header h1
 {
+	text-shadow: 5px 5px 10px black;
 	text-align: center;
+}
+
+header img
+{
+	float: right;
+	margin-right: 20px;
+	margin-top: 25px;
+	width: 80px;
 }
 
 header nav ul li
@@ -27,9 +37,10 @@ header nav ul li
 	/*border: 1px solid yellow;*/
 	background: white;
 	border-radius: 5px;
+	box-shadow: -3px -3px 10px black;
 	color: black;
 	display: inline-block;			/*Rompe caja*/
-	margin: 0px 46px;
+	margin: 0px 40px;
 	padding: 10px;
 }
 
@@ -37,4 +48,19 @@ header nav ul li:hover 				/*Mouse encima*/
 {
 	background: black;
 	color: white;
+}
+
+/*Aquí van los ID's*/
+
+#seccion1
+{
+	border: 10px solid red;
+}
+
+#seccion1 article
+{
+	border: 10px solid black;
+	display: inline-block;
+	vertical-align: top;
+	width: 47.8%;
 }
