@@ -1,0 +1,32 @@
+body
+{
+	border: 1px solid blue;
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+header
+{
+	background: #B3D8EB;
+	border: 1px solid yellow;
+}
+
+header nav
+{
+	background: #0E6CB0;
+	border-radius: 5px;
+	padding: 0.05px 0px 0.05px 0px;
+}
+
+header nav ul li
+{
+	color: white;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#logo
+{
+	margin-top: -250px;
+}
