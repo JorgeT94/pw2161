@@ -6,17 +6,36 @@ body
 	max-width: 1024px;
 }
 
+form
+{
+	float: right;
+	margin-top: -40px;
+	margin-right: 20px;
+}
+
+form input
+{
+	border-radius: 5px;
+}
+
+form input[type="button"]
+{
+	background: green;
+	color: white;
+}
+
 header
 {
 	background: #B3D8EB;
-	border: 1px solid yellow;
 }
 
 header nav
 {
 	background: #0E6CB0;
 	border-radius: 5px;
+	margin: 0 auto;
 	padding: 0.05px 0px 0.05px 0px;
+	width: 99%;
 }
 
 header nav ul li
@@ -27,6 +46,18 @@ header nav ul li
 }
 
 #logo
-{
+{	
 	margin-top: -250px;
+}
+
+#seccion01 article
+{
+	text-align: center;
+}
+
+#seccion01 article img
+{
+	border: 5px solid rgba(200,200,200,0.5);
+	margin-top: 15px;
+	width: 98%;
 }
