@@ -1,7 +1,7 @@
 body
 {
 	border: 1px solid blue;
-	font-size: 16px;
+	font-size: 16px; /*1em*/
 	margin: 0 auto;
 	max-width: 1024px;
 }
@@ -60,4 +60,35 @@ header nav ul li
 	border: 5px solid rgba(200,200,200,0.5);
 	margin-top: 15px;
 	width: 98%;
+}
+
+#seccion02 article
+{
+	border: 1px solid cyan;
+	display: inline-block;
+	vertical-align: top;
+	width: 32.87%;
+}
+
+#seccion02 article input
+{
+	background: white;
+	border-radius: 2px;
+	color: blue;
+	margin-left: 42%;
+}
+
+.otraSeccion,.unaSeccion
+{
+	font-weight: bold; /*negritas*/
+}
+
+.otraSeccion
+{
+	font-size: 2.5em;
+}
+
+.unaSeccion
+{
+	font-size: 4.5em;
 }
