@@ -1,6 +1,6 @@
 body
 {
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
 	font-size: 16px; /*1em*/
 	margin: 0 auto;
 	max-width: 1024px;
@@ -57,14 +57,14 @@ header nav ul li
 
 #seccion01 article img
 {
-	border: 5px solid rgba(200,200,200,0.5);
+	/*border: 5px solid rgba(200,200,200,0.5);*/
 	margin-top: 15px;
 	width: 98%;
 }
 
 #seccion02 article
 {
-	border: 1px solid cyan;
+	/*border: 1px solid cyan;*/
 	display: inline-block;
 	vertical-align: top;
 	width: 32.87%;
