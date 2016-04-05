@@ -1,0 +1,51 @@
+body
+{
+	border: 1px solid black;
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+header
+{
+	border: 1px solid blue;
+	padding-bottom: 25px;
+}
+
+header nav
+{
+	background: #DD4812;
+	border: 1px solid orange;
+	border-radius: 8px;
+	margin: 0 auto;
+	margin-bottom: -10px;
+	width: 98.5%;
+}
+
+header nav ul li
+{
+	color: white;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+span
+{
+	color: white;
+	font-size: 1.5em;
+	margin-left: 20px;
+	-webkit-text-stroke: 0.5px rgba(100,100,100,.50);
+}
+
+#logo
+{
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.red
+{
+	float: right;
+	margin-right: 15px;
+	margin-top: -30px;
+}
