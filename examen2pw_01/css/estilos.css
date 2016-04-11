@@ -1,0 +1,149 @@
+body
+{
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+footer
+{
+	display: inline-block;
+}
+
+header nav
+{
+	border-bottom: dashed;
+	border-bottom-width: 1px;
+	padding-bottom: 25px;
+}
+
+header nav ul li
+{
+	display: inline-block;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+section
+{ 
+	display: inline-block;
+	vertical-align: top;
+	margin-top: -90px;
+	margin-bottom: 35px;
+}
+
+section article
+{
+	display: inline-block;
+	margin: 20px 0px 0px 20px;
+	vertical-align: top;
+}
+
+#about
+{
+	margin-left: 22px;
+}
+
+#about, #customer, #policies, #activities, #newsletter
+{
+	color: rgba(200,200,200,1);
+	display: inline-block;
+	margin-top: 30px;
+	vertical-align: top;
+ 	width: 18%;
+}
+
+#articulo01
+{
+	width: 55%;
+}
+
+#articulo01 img
+{
+	width: 46%;
+	margin: 10px 5px 5px 2px;
+}
+
+#articulo02
+{
+	overflow: hidden;
+	width: 37%;
+}
+
+#bike 
+{ 
+	float: right;
+	width: 85%; 
+}
+
+
+#buy
+{
+	float: right;
+	margin: 115px 10px;
+	width: 5%;
+}
+
+#cinco
+{
+	float: left;
+	margin-top: -55px;
+	margin-right: -5px;
+	width: 35%;
+}
+
+#copy
+{
+	color: rgba(150,150,150,1);
+	font-size: 0.8em;
+	margin-left: 20px;
+}
+
+#goShop
+{
+	float: right;
+	margin: 50px -20px;
+	width: 18%;
+}
+
+#logo
+{
+	margin: 25px 0px 20px 20px;
+}
+
+#parrafo
+{
+	border-top: dashed;
+	border-top-width: 1px;
+	color: rgba(100,100,100,1);
+	display: inline-block;
+	padding-top: 30px;
+}
+
+#titulo
+{
+	font-size: 4em;
+	font-weight: bold;
+	width: 80%;
+}
+
+#verde
+{ 
+	color: rgba(96,255,96,1);
+}
+
+.circulos
+{
+	float: right;
+	margin: 7px 8px 0px 0px;
+}
+
+.footTitle
+{
+	color: rgba(150,150,150,1);
+	border-bottom: solid;
+	border-bottom-width: 1.5px;
+	padding-bottom: 4px;
+	margin-bottom: 10px;
+}
