@@ -1,0 +1,37 @@
+body
+{
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+h1 { text-align: center; }
+
+table
+{ 
+	border-collapse: collapse;
+	margin: 0 auto; 
+}
+
+table tr td
+{
+	display: inline-block;
+	/*margin: 0 auto;*/
+}
+
+input
+{
+	border: 0px;
+	font-size: 6em;
+	text-align: center;
+}
+
+#td11,#td12,#td13,#td21,#td22,#td23
+{
+	border-bottom: 8px solid red;
+}
+
+#td11,#td21,#td31,#td12,#td22,#td32
+{
+	border-right: 8px solid red;
+}
