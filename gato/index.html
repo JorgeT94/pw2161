@@ -8,22 +8,24 @@
 </head>
 <body>
 	<h1>Juego del Gato (#1)</h1>
-	<table name="gato">
-		<tr>
-			<td id="td11"> <input type="text" size=1 name="td11" onclick="movimiento()"></td>
-			<td id="td12"> <input type="text" size=1 onclick="movimiento()"></td>
-			<td id="td13"> <input type="text" size=1 onclick="movimiento()"></td>
-		</tr>
-		<tr>
-			<td id="td21"> <input type="text" size=1 onclick="movimiento()"></td>
-			<td id="td22"> <input type="text" size=1 onclick="movimiento()"></td>
-			<td id="td23"> <input type="text" size=1 onclick="movimiento()"></td>
-		</tr>
-		<tr>
-			<td id="td31"> <input type="text" size=1 onclick="movimiento()"></td>
-			<td id="td32"> <input type="text" size=1 onclick="movimiento()"></td>
-			<td id="td33"> <input type="text" size=1 onclick="movimiento()"></td>
-		</tr>
-	</table>
+	<form action="#" name="gato">
+		<table>
+			<tr>
+				<td id="td11"> <input type="text" size=1 id="td111" value="" onclick="movimiento(this.id);"></td>
+				<td id="td12"> <input type="text" size=1 id="td121" value="" onclick="movimiento(this.id);"></td>
+				<td id="td13"> <input type="text" size=1 id="td131" value="" onclick="movimiento(this.id);"></td>
+			</tr>
+			<tr>
+				<td id="td21"> <input type="text" size=1 id="td211" value="" onclick="movimiento(this.id);"></td>
+				<td id="td22"> <input type="text" size=1 id="td221" value="" onclick="movimiento(this.id);"></td>
+				<td id="td23"> <input type="text" size=1 id="td231" value="" onclick="movimiento(this.id);"></td>
+			</tr>
+			<tr>
+				<td id="td31"> <input type="text" size=1 id="td311" value="" onclick="movimiento(this.id);"></td>
+				<td id="td32"> <input type="text" size=1 id="td321" value="" onclick="movimiento(this.id);"></td>
+				<td id="td33"> <input type="text" size=1 id="td331" value="" onclick="movimiento(this.id);"></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
