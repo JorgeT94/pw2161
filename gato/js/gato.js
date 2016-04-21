@@ -1,7 +1,31 @@
 var tipo="X";
 var contadorX = 0;
 var contadorO = 0;
+// document.body.style.cursor = 'wait';
+
+//Función que inicia aleatoriamente con "X" o con "O".
 function movimiento(nombre){
+	if(contadorX == 0 && contadorO == 0){
+		tipo = (Math.random()*10 <= 5 ? "X" : "O");
+		/*if (Math.random()*10 <= 5) tipo = "X";
+		else tipo="O";*/
+	}
+	if(document.getElementById(nombre).value == ""){
+		document.getElementById(nombre).value = tipo;
+		document.getElementById(nombre).disabled = true;
+		if(tipo == "X"){
+			contadorX += 1;
+			tipo = "O";	
+		} 
+		else{
+			contadorO += 1;
+			tipo = "X";
+		}
+		if(contadorX >= 3 || contadorO >= 3) checarGanador();
+	}
+}
+//Función que inicia con el tipo predefinido en la variable global "tipo".
+function movimient2(nombre){
 	if (document.getElementById(nombre).value == "") {
 		document.getElementById(nombre).value = tipo;
 		document.getElementById(nombre).disabled = true;
@@ -13,8 +37,7 @@ function movimiento(nombre){
 			contadorO += 1;
 			tipo = "X";
 		}
-		if(contadorX+contadorO==9){	alert("EMPATE!!!!!"); location.reload(); }
-		else if(contadorX >= 3 || contadorO >= 3) checarGanador();
+		if(contadorX >= 3 || contadorO >= 3) checarGanador();
 	}
 }
 
@@ -42,8 +65,5 @@ function checarGanador(){
 	else if(td13 != "" && td13 == td23 && td23 == td33){ alerta(td13);}
 	else if(td11 != "" && td11 == td22 && td22 == td33){ alerta(td11);}
 	else if(td13 != "" && td13 == td22 && td22 == td31){ alerta(td13);}
-
-	/*if (document.gato.td111.value == document.gato.td121.value && document.gato.td121.value==document.gato.td131.value) {
-		alert("Ganador Equipo "+document.gato.td111.value+" !!!");
-	};*/
+	else if(contadorX + contadorO == 9){ alert("EMPATE!!!!!"); location.reload();}
 }
