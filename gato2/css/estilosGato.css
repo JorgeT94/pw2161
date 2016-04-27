@@ -23,6 +23,12 @@ section article table td
 	width: 100px;
 }
 
+#boton
+{
+	text-align: center;
+	padding-top: 30px;
+}
+
 #unouno, #unodos, #dosuno, #dosdos
 {
 	border-bottom: 8px solid red;

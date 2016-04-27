@@ -7,6 +7,24 @@ var cuentaJugadas = 0;
 
 function iniciaGato(){
 	//En construcción ¬¬
+	//Eliminar la variable de localStorage
+	//localStorage.removeItem("webCuentaJuego");
+	if(typeof(Storage) != "undefined"){
+		if(localStorage.webCuentaJuego){
+			cuentaJuego = parseInt(localStorage.webCuentaJuego);
+			cuentaJuego = cuentaJuego+1;
+		} else{
+			cuentaJuego = 1;
+		}
+		document.getElementById("tituloJuego").innerHTML="Juego del gato (#"+cuentaJuego+")";
+	} else{
+		alert("UTILIZA UN NAVEGADOR ACTUALIZADO, NO ERES PRO!");
+	}
+}
+
+function reinicia(){
+	localStorage.removeItem("webCuentaJuego");
+	iniciaGato();
 }
 
 function validaJugada(letra){

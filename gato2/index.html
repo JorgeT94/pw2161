@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/estilosGato.css">
 	<script src="js/javascriptGato.js"></script>
 </head>
-<body>
+<body onLoad="iniciaGato();" unLoad="mensaje();">
 	<header>
 		<h1 id="tituloJuego">Juego del Gato</h1>
 	</header>
@@ -30,6 +30,9 @@
 						<td onclick="escribe(this.id);" id="trestres">&nbsp;</td>
 					</tr>
 				</table>
+				<section id="boton">
+					<input type="button" value="Reiniciar" onclick="reinicia();">
+				</section>
 			</form>
 		</article>
 	</section>
