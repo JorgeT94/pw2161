@@ -10,7 +10,23 @@ var inicio = function(){
 		$(".anuncioWeb").append("Clic del Botón");
 	}
 	var clicBoton2 = function(){
-		alert("Botón 2");
+		$.ajax({
+			beforeSend: function(){
+				console.log("Espere...");
+				$('html,body').css('cursor','wait');
+			},
+  			url: 'https://randomuser.me/api/',
+  			dataType: 'json',
+  			success: function(data){
+  				console.log(data);
+  				$('html,body').css('cursor','default');
+  				alert(data.results[0].name.first+" "+
+  					  data.results[0].name.last);
+  			},
+  			error: function(xhr,error,throws){
+  				console.log("Ocurrió un error");
+  			}
+		});
 	}
 	var teclaUnInput = function(tecla){
 		if(tecla.which == 13){
@@ -19,7 +35,7 @@ var inicio = function(){
 		}
 	}
 	//Preparar los eventos de todos mis objetos.
-	$("#miBoton").off("click",clicBoton2);
+	$("#miBoton").on("click",clicBoton2);
 	$("#miBoton").on("click",clicBoton);
 	$("#unInput").on("keypress",teclaUnInput);
 }
