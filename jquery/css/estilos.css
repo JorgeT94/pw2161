@@ -1,0 +1,41 @@
+article
+{
+	text-align: center;
+}
+
+body
+{
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+h2
+{
+	background: #8000ff;
+	border-radius: 10px;
+	color: white;
+	margin: 0 auto;
+	padding: 15px 15px 15px 15px;
+	text-align: center;
+	width: 50%;
+}
+
+#fotoPersona
+{
+	border-radius: 10px;
+	width: 300px;
+}
+
+#miBoton
+{
+	background: #bf00ff;
+	border-radius: 10px;
+	color: white;
+	padding: 7px 7px 7px 7px;
+}
+
+#txtNombreUser, #txtApellidoUser
+{
+	font-size: 2em;
+}

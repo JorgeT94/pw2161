@@ -20,8 +20,14 @@ var inicio = function(){
   			success: function(data){
   				console.log(data);
   				$('html,body').css('cursor','default');
-  				alert(data.results[0].name.first+" "+
-  					  data.results[0].name.last);
+  				// alert(data.results[0].name.first+" "+data.results[0].name.last);
+  				//Mostramos la información en el HTML
+  				$("#fotoPersona").attr("src",data.results[0].picture.large);
+  				$("#txtNombreUser").html(data.results[0].name.first);
+  				$("#txtApellidoUser").html(data.results[0].name.last);
+  				if(data.results[0].name.first.charAt(0) == 'm'){
+  					alert("La persona empieza con M");
+  				}
   			},
   			error: function(xhr,error,throws){
   				console.log("Ocurrió un error");
@@ -35,8 +41,8 @@ var inicio = function(){
 		}
 	}
 	//Preparar los eventos de todos mis objetos.
+	$("#miBoton").off("click",clicBoton);
 	$("#miBoton").on("click",clicBoton2);
-	$("#miBoton").on("click",clicBoton);
 	$("#unInput").on("keypress",teclaUnInput);
 }
 //Main
