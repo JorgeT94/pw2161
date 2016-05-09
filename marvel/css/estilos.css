@@ -1,0 +1,60 @@
+body
+{
+	font-size: 16px;
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+header
+{
+	background: rgba(150,50,50,.50);
+	border-radius: 10px;
+	color: white;
+	margin: 0 auto;
+	padding: .5px 0px .5px 0px;
+	width: 40%;
+}
+
+header h1
+{
+	text-align: center;
+}
+
+img
+{
+	border-radius: 10px;
+	width: 250px;
+}
+
+input[Type="text"]
+{
+	border-radius: 5px;
+}
+
+td
+{
+	width: 250px;
+}
+
+article form
+{
+	margin-top: 15px;
+	text-align: center;
+}
+
+article form table
+{
+	margin: 0 auto;
+}
+
+article form table tr
+{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#tablaMarvel
+{
+	background: rgba(150,50,50,.50);
+	border-radius: 10px;
+}
