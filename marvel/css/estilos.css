@@ -33,7 +33,14 @@ input[Type="text"]
 
 td
 {
+	border-bottom: 1px solid black;
+	border-bottom-style: dashed; 
 	width: 250px;
+}
+
+th
+{
+	font-size: 2em;
 }
 
 article form
