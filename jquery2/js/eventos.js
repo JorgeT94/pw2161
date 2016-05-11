@@ -1,9 +1,11 @@
 var iniciaApp = function(){
 	var validarEntrada = function(){
+		//Invalida los eventos que no corresponden a esta función.
+		event.preventDefault();
 		var usuario = $("#txtUsuario").val();
 		var clave = $("#txtClave").val();
 		//Validaciones
-		//1.- Que no sean vacíos
+		//1.- Que no sean vacíos:
 		if(usuario == ""){
 			alert("El usuario no debe ser vacío");
 			$("#txtUsuario").focus();
@@ -12,7 +14,15 @@ var iniciaApp = function(){
 			alert("La contraseña no debe ser vacío");
 			$("#txtClave").focus();
 		}
-		//2.-
+		//2.- Verificar usuario y contraseña:
+		if(usuario == "pw" && clave == "1234"){
+			alert("Bienvenido "+usuario);
+			//Dar entrada al usuario:
+			$("#datosUsuario").hide(); //escondemos
+			$("nav").show("slow"); //mostramos
+		} else{
+			alert("Usuario y/o contraseña incorrecta(s)");
+		}
 		console.log("Se disparó el Submit");
 	}
 	$("#frmValidaEntrada").on("submit",validarEntrada);
