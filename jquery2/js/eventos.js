@@ -15,14 +15,31 @@ var iniciaApp = function(){
 			$("#txtClave").focus();
 		}
 		//2.- Verificar usuario y contraseña:
-		if(usuario == "pw" && clave == "1234"){
+		var parametros = "accion=validarEntrada"+"$usuario="+usuario+"&clave="+clave
+		$.ajax({
+			beforeSend: function(){
+				console.log("Validar al usuario");
+			},
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			url: "php/funciones.php",
+			data: parametros,
+			success: function(response){
+
+			},
+			error: function(xhr,ajaxOptions,thrownError){
+				console.log("Algo salió mal");
+			}
+		});
+		/*if(usuario == "pw" && clave == "1234"){
 			alert("Bienvenido "+usuario);
 			//Dar entrada al usuario:
 			$("#datosUsuario").hide(); //escondemos
 			$("nav").show("slow"); //mostramos
 		} else{
 			alert("Usuario y/o contraseña incorrecta(s)");
-		}
+		}*/
 		console.log("Se disparó el Submit");
 	}
 	$("#frmValidaEntrada").on("submit",validarEntrada);
