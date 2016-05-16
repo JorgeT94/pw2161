@@ -15,7 +15,10 @@ var iniciaApp = function(){
 			$("#txtClave").focus();
 		}
 		//2.- Verificar usuario y contraseña:
-		var parametros = "accion=validarEntrada"+"$usuario="+usuario+"&clave="+clave
+		var parametros = "accion=validaEntrada"+
+						 "$usuario="+usuario+
+						 "&clave="+clave+
+						 "&id="+Math.random();
 		$.ajax({
 			beforeSend: function(){
 				console.log("Validar al usuario");
@@ -26,7 +29,12 @@ var iniciaApp = function(){
 			url: "php/funciones.php",
 			data: parametros,
 			success: function(response){
-
+				if (response.respuesta){
+					$("#datosUsuario").hide();
+					$("nav").show("slow");
+				} else{
+					alert("Usuario/contraseña incorrecto(s)");
+				}
 			},
 			error: function(xhr,ajaxOptions,thrownError){
 				console.log("Algo salió mal");
