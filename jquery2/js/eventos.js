@@ -15,8 +15,8 @@ var iniciaApp = function(){
 			$("#txtClave").focus();
 		}
 		//2.- Verificar usuario y contraseña:
-		var parametros = "accion=validaEntrada"+
-						 "$usuario="+usuario+
+		var parametros = "accion=validarEntrada"+
+						 "&usuario="+usuario+
 						 "&clave="+clave+
 						 "&id="+Math.random();
 		$.ajax({

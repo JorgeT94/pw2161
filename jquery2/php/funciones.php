@@ -49,7 +49,7 @@ function validaEntrada(){
 $accion = $_POST["accion"];
 //Menú principal
 switch ($accion) {
-	case 'validaEntrada':
+	case 'validarEntrada':
 		validaEntrada();
 		break;
 	
