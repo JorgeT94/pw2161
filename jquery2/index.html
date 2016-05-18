@@ -14,7 +14,7 @@
 		<nav>
 			<ul>
 				<li><button class="btn btn-default">Inicio</button></li>
-				<li><button class="btn btn-primary">Altas</button></li>
+				<li><button id="btnAltas" class="btn btn-primary">Altas</button></li>
 				<li><button class="btn btn-primary">Bajas</button></li>
 				<li><button class="btn btn-warning">Cambios</button></li>
 				<li><button class="btn btn-danger">Consultas</button></li>
@@ -42,7 +42,7 @@
 		<section>
 			<article id="altaUsuarios">
 				<h2>Alta de Usuarios</h2>
-				<form action="#" id="frmAltaUsuario" name="frmAltaUsuario">
+				<form action="#" method="post" id="frmAltaUsuarios" name="frmAltaUsuarios">
 					<input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario" placeholder="Usuario" required>
 					<input type="password" class="form-control" id="txtClaveUsuario" name="txtClaveUsuario" placeholder="Clave" required>
 					<select name="txtTipoUsuario" id="txtTipoUsuario" class="form-control">
