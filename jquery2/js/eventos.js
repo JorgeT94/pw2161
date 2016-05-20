@@ -16,7 +16,7 @@ var iniciaApp = function(){
 		}
 		//2.- Verificar usuario y contraseña:
 		var parametros = "accion=validaEntrada"+
-						 "$usuario="+usuario+
+						 "&usuario="+usuario+
 						 "&clave="+clave+
 						 "&id="+Math.random();
 		$.ajax({
@@ -50,6 +50,41 @@ var iniciaApp = function(){
 		}*/
 		console.log("Se disparó el Submit");
 	}
+
+	var Altas = function(){
+		//Mostramos el formulario
+		//$("nav").hide();
+		$("#altaUsuarios").show("slow");
+	}
+
+	var AltaUsuario = function(){
+		event.preventDefault();
+		//alert($("#frmAltaUsuarios").serialize());
+		var datos = $("#frmAltaUsuarios").serialize();
+		var parametros = "accion=guardaUsuario&"+datos+"&id="+Math.random();
+		$.ajax({
+			beforeSend: function(){
+				console.log("Registrar al usuario");
+			},
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			url: "php/funciones.php",
+			data: parametros,
+			success: function(response){
+				if(response.respuesta){
+					alert("Usuario registrado correctamente");
+				} else{
+					alert("No se pudo guardar la informacion");
+				}
+			},
+			error: function(xhr,ajx,thrownError){
+				console.log("Algo salió mal registrando al usuario.");
+			}
+		});
+	}
 	$("#frmValidaEntrada").on("submit",validarEntrada);
+	$("#btnAltas").on("click",Altas);
+	$("#frmAltaUsuarios").on("submit",AltaUsuario);
 }
 $(document).on("ready",iniciaApp);
