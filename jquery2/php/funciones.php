@@ -66,6 +66,25 @@ function guardaUsuario(){
 	print json_encode($salidaJSON);
 }
 
+function eliminaUsuario(){
+	$usuario = GetSQLValueString($_POST["txtNombreUsuario"],"text");
+	$clave = GetSQLValueString(md5($_POST["txtClaveUsuario"]),"text");
+	$respuesta = false;
+	//Conecto al servidor de BD
+	//Servidor, usuario, clave
+	$conexion = mysql_connect("localhost","root","");
+	//Seleccionar la BD
+	mysql_select_db("cursopw");
+	$elimina = sprintf("delete from usuarios where usuario=%s and clave=%s",$usuario,$clave);
+	//Ejecutamos la consulta
+	mysql_query($elimina);
+	//Cuantos registros tenemos afectados
+	if(mysql_affected_rows() > 0)
+		$respuesta = true;
+	$salidaJSON = array('respuesta' => $respuesta);
+	print json_encode($salidaJSON);
+}
+
 $accion = $_POST["accion"];
 //Menú principal
 switch ($accion) {
@@ -74,6 +93,9 @@ switch ($accion) {
 		break;
 	case 'guardaUsuario':
 		guardaUsuario();
+		break;
+	case 'eliminaUsuario':
+		eliminaUsuario();
 		break;
 	default:
 		# code...
