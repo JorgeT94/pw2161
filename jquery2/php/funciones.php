@@ -1,12 +1,9 @@
 <?php 
 //Funciones
-
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
   $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-
   $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
   switch ($theType) {
     case "text":
       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
@@ -27,7 +24,6 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   }
   return $theValue;
 }
-
 function validaEntrada(){
 	$usuario = GetSQLValueString($_POST["usuario"],"text");
 	$clave = GetSQLValueString(md5($_POST["clave"]),"text");
@@ -61,7 +57,26 @@ function guardaUsuario(){
 	$guarda = sprintf("insert into usuarios values(%s,%s,%s,%d)",$usuario,$clave,$tipo,$depto);
 	//Ejecutamos la consulta
 	mysql_query($guarda);
-	//Cuantos registros fueron afectados
+	//Cuantos registros tenemos afectados
+	if(mysql_affected_rows() > 0)
+	{
+		$respuesta = true;
+	} 
+	$salidaJSON = array('respuesta' => $respuesta);
+	print json_encode($salidaJSON);
+}
+
+function bajaUsuario(){
+	$usuario = GetSQLValueString($_POST["txtNombreUsuario"],"text");
+	//$clave = GetSQLValueString(md5($_POST["txtClaveUsuario"]),"text");
+	$respuesta = false;
+	$conexion = mysql_connect("localhost","root","");
+	mysql_select_db("cursopw");
+	//Eliminar de la BD.
+	$baja = sprintf("delete from usuarios where usuario=%s limit 1",$usuario);
+	//Cambiar su tipo de Vigente a Baja
+	//$baja = sprintf("update usuarios set tipousuario='baja' where usuario=%s limit 1", $usuario);
+	mysql_query($baja);
 	if(mysql_affected_rows() > 0)
 		$respuesta = true;
 	$salidaJSON = array('respuesta' => $respuesta);
@@ -74,12 +89,14 @@ switch ($accion) {
 	case 'validarEntrada':
 		validaEntrada();
 		break;
-	case 'guardaUsuario':
+	case 'guardarUsuario':
 		guardaUsuario();
+		break;
+	case 'bajaUsuario':
+		bajaUsuario();
 		break;
 	default:
 		# code...
 		break;
 }
-
 ?>

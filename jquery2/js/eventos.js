@@ -32,6 +32,8 @@ var iniciaApp = function(){
 				if (response.respuesta){
 					$("#datosUsuario").hide();
 					$("nav").show("slow");
+					$("#exitoAltas").show("slow");
+					$("#spanExito").html("<strong>Bienvenido "+usuario+"!</strong>");
 				} else{
 					alert("Usuario/contraseña incorrecto(s)");
 				}
@@ -53,8 +55,15 @@ var iniciaApp = function(){
 
 	var Altas = function(){
 		//Mostramos el formulario
+		//$("nav").hide();
+		$("#errorBajas").hide();
+		$("#bajaUsuarios").hide();
 		$("#altaUsuarios").show("slow");
-		
+		$("#altaUsuarios h2").html("Alta Usuarios");
+		//Enciendo la función de AltaUsuario
+		$("#frmAltaUsuarios").on("submit",AltaUsuario);
+		//Apago la función de BajaUsuario para el mismo botón.
+		$("#frmAltaUsuarios").off("submit",BajaUsuario);
 	}
 
 	var AltaUsuario = function(){
@@ -65,7 +74,7 @@ var iniciaApp = function(){
 						 "&id="+Math.random();
 		$.ajax({
 			beforeSend: function(){
-				console.log("Guardar al usuario");
+				console.log("Registrar al usuario");
 			},
 			cache: false,
 			type: "POST",
@@ -74,19 +83,95 @@ var iniciaApp = function(){
 			data: parametros,
 			success: function(response){
 				if(response.respuesta){
-					alert("Usuario registrado correctamente");
+					$("#spanExito").html("<strong>Enhorabuena!</strong> Usuario registrado correctamente");
+					$("#exitoAltas").show("slow");
+					//alert("Usuario registrado correctamente");
+					$("#txtNombreUsuario").val("");
+					$("#txtClaveUsuario").val("");
+					$("#txtTipoUsuario").val(vigente);
+					$("#txtDepartamento").val("");
 				} else{
-					alert("No se pudo guardar la información");
+					alert("No se pudo guardar la informacion");
 				}
 			},
-			error: function(xhr,ajaxOptions,thrownError){
-				console.log("Algo salió mal");
+			error: function(xhr,ajx,thrownError){
+				console.log("Algo salió mal registrando al usuario.");
+			}
+		});
+	}
+	var Bajas = function(){
+		$("#exitoAltas").hide();
+		$("#altaUsuarios").show("slow");
+		$("#altaUsuarios h2").html("Baja Usuarios");
+		//Apago la función de AltaUsuario
+		$("#frmAltaUsuarios").off("submit",AltaUsuario);
+		//Enciendo la función de BajaUsuario para el mismo botón.
+		$("#frmAltaUsuarios").on("submit",BajaUsuario);
+	}
+
+	var BajaUsuario = function(){
+		event.preventDefault();
+		//var datos = $("#frmAltaUsuarios").serialize();
+		var datos = "txtNombreUsuario="+$("#txtNombreUsuario").val();
+		var parametros = "accion=bajaUsuario&"+datos+"&id="+Math.random();
+		$.ajax({
+			beforeSend: function(){
+				console.log("Baja al usuario");
+			},
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			url: "php/funciones.php",
+			data: parametros,
+			success: function(response){
+				if(response.respuesta){
+					alert("Usuario dado de baja correctamente");
+					Inicio();
+					$("#txtNombreUsuario").val("");
+					$("#txtClaveUsuario").val("");
+				} else{
+					$("#errorBajas").show("slow");
+					//alert("El usuario no existe o la contraseña es incorrecta");
+				}
+			},
+			error: function(xhr,ajx,thrownError){
+				console.log("Algo salió mal dando de baja al usuario.");
 			}
 		});
 	}
 
+	var Inicio = function(){
+		$("#altaUsuarios").hide();
+		$("#exitoAltas").hide();
+		$("#bajaUsuarios").hide();
+		$("#errorBajas").hide();
+	}
+
+	var Salir = function(){
+		Inicio();
+		$("nav").hide();
+		$("#datosUsuario").show("slow");
+	}
+
+	var ErrorBajas = function(){
+		$("#errorBajas").hide("slow");
+	}
+
+	var ExitoAltas = function(){
+		$("#exitoAltas").hide("slow");
+	}
+
 	$("#frmValidaEntrada").on("submit",validarEntrada);
-	$("#btnAltas").on("click",Altas);
+	$("#btnInicio").on("click",Inicio);
+
+	$("#btnAltas").on("click",Altas);	
 	$("#frmAltaUsuarios").on("submit",AltaUsuario);
+
+	$("#btnBajas").on("click",Bajas);
+	$("#frmBajaUsuarios").on("submit",BajaUsuario);
+	$("#btnSalir").on("click",Salir);
+
+	$("#cierraErrorBajas").on("click",ErrorBajas);
+	$("#cierraExitoAltas").on("click",ExitoAltas);
 }
 $(document).on("ready",iniciaApp);

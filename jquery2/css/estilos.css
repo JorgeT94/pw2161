@@ -5,6 +5,11 @@ body
 	max-width: 1024px;
 }
 
+h2
+{
+	text-align: center;
+}
+
 header h1
 {
 	text-align: center;
@@ -26,7 +31,8 @@ header nav ul li button
 	width: 89px;
 }
 
-#altaUsuarios
+#altaUsuarios,#bajaUsuarios
+
 {
 	display: none;
 	margin: 0 auto;
@@ -37,4 +43,9 @@ header nav ul li button
 {
 	margin: 0 auto;
 	width: 320px;
+}
+
+#errorBajas,#exitoAltas
+{
+	display: none;
 }
