@@ -54,7 +54,7 @@ function guardaUsuario(){
 	$conexion = mysql_connect("localhost","root","");
 	//Seleccionar la BD
 	mysql_select_db("cursopw");
-	$guarda = sprintf("insert into usuarios values(%s,%s,%s,%s)",$usuario,$clave,$tipo,$depto);
+	$guarda = sprintf("insert into usuarios values(%s,%s,%s,%d)",$usuario,$clave,$tipo,$depto);
 	//Ejecutamos la consulta
 	mysql_query($guarda);
 	//Cuantos registros tenemos afectados
@@ -66,36 +66,51 @@ function guardaUsuario(){
 	print json_encode($salidaJSON);
 }
 
-function eliminaUsuario(){
+function bajaUsuario(){
 	$usuario = GetSQLValueString($_POST["txtNombreUsuario"],"text");
-	$clave = GetSQLValueString(md5($_POST["txtClaveUsuario"]),"text");
+	//$clave = GetSQLValueString(md5($_POST["txtClaveUsuario"]),"text");
 	$respuesta = false;
-	//Conecto al servidor de BD
-	//Servidor, usuario, clave
 	$conexion = mysql_connect("localhost","root","");
-	//Seleccionar la BD
 	mysql_select_db("cursopw");
-	$elimina = sprintf("delete from usuarios where usuario=%s and clave=%s",$usuario,$clave);
-	//Ejecutamos la consulta
-	mysql_query($elimina);
-	//Cuantos registros tenemos afectados
+	//Eliminar de la BD.
+	$baja = sprintf("delete from usuarios where usuario=%s limit 1",$usuario);
+	//Cambiar su tipo de Vigente a Baja
+	//$baja = sprintf("update usuarios set tipousuario='baja' where usuario=%s limit 1", $usuario);
+	mysql_query($baja);
 	if(mysql_affected_rows() > 0)
 		$respuesta = true;
 	$salidaJSON = array('respuesta' => $respuesta);
 	print json_encode($salidaJSON);
 }
 
+function rellena(){
+	$usuario = GetSQLValueString($_POST["txtNombreUsuario"],"text");
+	$respuesta = false;
+	$conexion = mysql_connect("localhost","root","");
+	mysql_select_db("cursopw");
+	$consulta = sprintf("select clave,tipo,departamento from usuarios where usuario=%s",$usuario);
+	$datos = mysql_query($consulta);
+	$obj = mysql_fetch_object($datos);
+	if(mysql_affected_rows() > 0)
+		$respuesta = true;
+	$salidaJSON = array('respuesta' => $respuesta, 'datos' => $obj);
+	print json_encode($salidaJSON);
+}
+
 $accion = $_POST["accion"];
 //Menú principal
 switch ($accion) {
-	case 'validaEntrada':
+	case 'validarEntrada':
 		validaEntrada();
 		break;
-	case 'guardaUsuario':
+	case 'guardarUsuario':
 		guardaUsuario();
 		break;
-	case 'eliminaUsuario':
-		eliminaUsuario();
+	case 'bajaUsuario':
+		bajaUsuario();
+		break;
+	case 'rellena':
+		rellena();
 		break;
 	default:
 		# code...
