@@ -10,7 +10,7 @@
 	<script src="js/eventos.js"></script>
 </head>
 <body>
-	<header>
+	<header class="page-header">
 		<h1>Sistema de Ejemplo</h1>
 		<nav>
 			<ul>
@@ -18,7 +18,7 @@
 				<li><button id="btnAltas" class="btn btn-primary">Altas</button></li>
 				<li><button id="btnBajas" class="btn btn-primary">Bajas</button></li>
 				<li><button class="btn btn-warning">Cambios</button></li>
-				<li><button class="btn btn-danger">Consultas</button></li>
+				<li><button id="btnConsultas" class="btn btn-danger">Consultas</button></li>
 				<li><button id="btnSalir" class="btn btn-info">Salir</button></li>
 			</ul>
 		</nav>
@@ -27,13 +27,13 @@
 		<section>
 			<article id="exitoAltas" class="alert alert-success alert-dismissible" role="alert">
 			  <button type="button" id="cierraExitoAltas" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <span id="spanExito"><strong>Enhorabuena!</strong> Usuario registrado correctamente</span>.
+			  <span id="msgExito"><strong>Enhorabuena!</strong> Usuario registrado correctamente.</span>
 			</article>
 		</section>
 		<section>
 			<article id="errorBajas" class="alert alert-danger alert-dismissible" role="alert">
 			  <button type="button" id="cierraErrorBajas" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <strong>Error!</strong> No se pudo dar de baja la información.
+			  <span id="msgError"><strong>Error!</strong> No se pudo dar de baja la información.</span>
 			</article>
 		</section>
 		<section>
@@ -66,15 +66,11 @@
 					<input type="submit" id="btnAltaUsuario" name="btnAltaUsuario" class="btn btn-success btn-lg btn-block">
 				</form>
 			</article>
-		</section>
-		<section>
-			<article id="bajaUsuarios">
-				<h2>Baja de usuarios</h2>
-				<form action="#" id="frmBajaUsuarios" name="frmBajaUsuarios">
-					<input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario" placeholder="Usuario" required>
-					<input type="password" class="form-control" id="txtClaveUsuario" name="txtClaveUsuario" placeholder="Clave" required>
-					<input type="submit" id="btnBajaUsuario" name="btnBajaUsuario" class="btn btn-success btn-lg btn-block">
-				</form>
+			<article id="consultasUsuarios">
+				<h2>Listado de usuarios</h2>
+				<table class="table table-stripped" name="tablaConsultas" id="tablaConsultas">
+					
+				</table>
 			</article>
 		</section>
 	</main>
