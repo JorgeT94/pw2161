@@ -58,8 +58,7 @@ var iniciaApp = function(){
 		//Mostramos el formulario
 		//$("nav").hide();
 		enBajas = false;
-		$("#errorBajas").hide();
-		$("#bajaUsuarios").hide();
+		Inicio();
 		$("#altaUsuarios").show("slow");
 		$("#altaUsuarios h2").html("Alta Usuarios");
 		//Enciendo la función de AltaUsuario
@@ -90,8 +89,8 @@ var iniciaApp = function(){
 					//alert("Usuario registrado correctamente");
 					$("#txtNombreUsuario").val("");
 					$("#txtClaveUsuario").val("");
-					$("#txtTipoUsuario").val(vigente);
 					$("#txtDepartamento").val("");
+					$("#txtTipoUsuario").val(vigente);
 				} else{
 					alert("No se pudo guardar la informacion");
 				}
@@ -102,8 +101,8 @@ var iniciaApp = function(){
 		});
 	}
 	var Bajas = function(){
+		Inicio();
 		enBajas = true;
-		$("#exitoAltas").hide();
 		$("#altaUsuarios").show("slow");
 		$("#altaUsuarios h2").html("Baja Usuarios");
 		//Apago la función de AltaUsuario
@@ -135,7 +134,6 @@ var iniciaApp = function(){
 				} else{
 					$("#msgError").html("<strong>Error!</strong> No se pudo dar de baja la información.");
 					$("#errorBajas").show("slow");
-					//alert("El usuario no existe o la contraseña es incorrecta");
 				}
 			},
 			error: function(xhr,ajx,thrownError){
@@ -150,10 +148,10 @@ var iniciaApp = function(){
 		$("#exitoAltas").hide();
 		$("#bajaUsuarios").hide();
 		$("#errorBajas").hide();
+		$("#consultasUsuarios").hide();
 	}
 
 	var Salir = function(){
-		enBajas = false;
 		Inicio();
 		$("nav").hide();
 		$("#datosUsuario").show("slow");
@@ -185,7 +183,7 @@ var iniciaApp = function(){
 			success: function(response){
 				if(response.respuesta){
 					$("#txtClaveUsuario").val(response.datos.clave);
-					$("#txtTipoUsuario").val(response.datos.tipo);
+					$("#txtTipoUsuario").val(response.datos.tipousuario);
 					$("#txtDepartamento").val(response.datos.departamento);
 				} else{
 					$("#msgError").html("<strong>Error!</strong> El usuario no existe.");
@@ -198,6 +196,33 @@ var iniciaApp = function(){
 		});
 	}
 
+	var Consultas = function(){
+		Inicio();
+		$("#consultasUsuarios").show("slow");
+		var parametros = "accion=consultas"+"&id="+Math.random();
+		$.ajax({
+			beforeSend: function(){
+				console.log("Consultas usuarios");
+			},
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			url: "php/funciones.php",
+			data: parametros,
+			success: function(response){
+				if(response.respuesta){
+					//Borra lo que ya estaba y agrega lo nuevo.
+					$("#tablaConsultas").html(response.tabla);
+					//Adjunta lo nuevo con lo que ya estaba.
+					//$("#tablaConsultas").append(response.tabla);
+				}
+			},
+			error: function(xhr,ajx,thrownError){
+				console.log("Ha ocurrido un error en las consultas.");
+			}
+		});
+	}
+
 	$("#txtNombreUsuario").on("focusout", Rellena);
 	$("#frmValidaEntrada").on("submit",validarEntrada);
 	$("#btnInicio").on("click",Inicio);
@@ -206,7 +231,8 @@ var iniciaApp = function(){
 	$("#frmAltaUsuarios").on("submit",AltaUsuario);
 
 	$("#btnBajas").on("click",Bajas);
-	$("#frmBajaUsuarios").on("submit",BajaUsuario);
+
+	$("#btnConsultas").on("click",Consultas);
 	$("#btnSalir").on("click",Salir);
 
 	$("#cierraErrorBajas").on("click",ErrorBajas);
