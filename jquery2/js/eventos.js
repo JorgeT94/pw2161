@@ -223,6 +223,7 @@ var iniciaApp = function(){
 		});
 	}
 
+<<<<<<< HEAD
 	var BajaDinamica = function(){
 		var usuario = $(this).attr("id");
 		alert(usuario);
@@ -254,6 +255,8 @@ var iniciaApp = function(){
 		});
 	}
 
+=======
+>>>>>>> c5d9f6644ca8e9fca42e2f9e31f432ef725e4076
 	$("#txtNombreUsuario").on("focusout", Rellena);
 	$("#frmValidaEntrada").on("submit",validarEntrada);
 	$("#btnInicio").on("click",Inicio);

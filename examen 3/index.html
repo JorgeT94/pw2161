@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Examen 3</title>
+	<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+	<script src="js/jquery-2.2.3.js"></script>
+	<script src="js/eventos.js"></script>
+</head>
+<body>
+	<header class="page-header">
+		<h1>Sistema de Almacén</h1>
+		<nav>
+			<ul>
+				<li><button id="btnAltas" class="btn btn-success">Altas</button></li>
+				<li><button id="btnOtro1" class="btn btn-danger">Bajas</button></li>
+				<li><button id="btnOtro2" class="btn btn-warning">Cambios</button></li>
+				<li><button id="btnOtro3" class="btn btn-primary">Consultas</button></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<article id="exitoAlta" class="alert alert-success alert-dismissible" role="alert">
+  			<button type="button" id="cierraMsgExito" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  			<span id="msgExito"><strong>Enhorabuena!</strong> El Almacén fue dado de alta correctamente.</span>
+		</article>
+		<article id="errorAlta" class="alert alert-danger alert-dismissible" role="alert">
+			<button type="button" id="cierraMsgError" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  			<span id="msgError"><strong>Error!</strong> No se pudo dar de alta el Almacén.</span>
+		</article>
+	</section>
+	<section>
+		<article id="altasAlmacenes">
+			<h2>Alta de Almacén</h2>
+			<form action="#" id="frmAltasAlmacenes" name="frmAltasAlmacenes">
+				<input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre del Almacén" required>
+				<input type="text" id="txtDir1" name="txtDir1" class="form-control" placeholder="Dirección #1 del Almacén" required>
+				<input type="text" id="txtDir2" name="txtDir2" class="form-control" placeholder="Dirección #2 del Almacén" required>
+				<input type="text" id="txtCP" name="txtCP" class="form-control" placeholder="Código Postal" required>
+				<input type="text" id="txtLocalidad" name="txtLocalidad" class="form-control" placeholder="Localidad" required>
+				<input type="text" id="txtProvincia" name="txtProvincia" class="form-control" placeholder="Provincia" required>
+				<input type="submit" class="btn btn-success btn-lg btn-block" value="Enviar" required>
+			</form>
+		</article>
+	</section>
+</body>
+</html>

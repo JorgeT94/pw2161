@@ -110,14 +110,20 @@ function consultas(){
 		$tabla.= "<th>Usuario</th>";
 		$tabla.= "<th>Tipo Usuario</th>";
 		$tabla.= "<th>Departamento</th>";
+<<<<<<< HEAD
 		$tabla.= "<th>Acciones</th>";
+=======
+>>>>>>> c5d9f6644ca8e9fca42e2f9e31f432ef725e4076
 		$tabla.= "</tr>";
 		while ($registro = mysql_fetch_array($resultado)) {
 			$tabla.="<tr>";
 			$tabla.="<td>".$registro["usuario"]."</td>";
 			$tabla.="<td>".$registro["tipousuario"]."</td>";
 			$tabla.="<td>".$registro["departamento"]."</td>";
+<<<<<<< HEAD
 			$tabla.="<td><button id='".$registro["usuario"]."' class='btn btn-danger'>Baja</button></td>";
+=======
+>>>>>>> c5d9f6644ca8e9fca42e2f9e31f432ef725e4076
 			$tabla.="</tr>";
 		}
 	}
